@@ -77,7 +77,7 @@ class SonosMeme extends Command
             /** @var SpeakerInterface $speaker */
             foreach ($speakers as $speaker) {
                 if ($speaker->getVolume() < 25) {
-                    $output->writeln($speaker->getName() . ' Setting volume to 30, cause the volume was too low');
+                    $output->writeln($speaker->getName() . ' Setting volume to 25, cause the volume was too low');
                     $speaker->setVolume(25);
                 }
             }
