@@ -51,6 +51,8 @@ class SonosMeme extends Command
     {
         $this->setName('sonos:meme')
             ->setDescription('Put on a meme song');
+
+        $this->addOption('volume', null, null, 'Adjust volume (0-100)');
     }
 
     /**
@@ -68,17 +70,33 @@ class SonosMeme extends Command
             /** @var Controller $controller */
             $output->writeln('Telling controller ' . $controller->getName() . ' to play our meme song');
             $controller->useQueue();
-            $controller->getQueue()->addTrack(new Spotify($this->songs[array_rand($this->songs)]), 1);
-            $controller->setShuffle(true);
-            $controller->selectTrack(0);
-            $controller->play();
-            $speakers = $controller->getSpeakers();
 
-            /** @var SpeakerInterface $speaker */
-            foreach ($speakers as $speaker) {
-                if ($speaker->getVolume() < 25) {
-                    $output->writeln($speaker->getName() . ' Setting volume to 25, cause the volume was too low');
-                    $speaker->setVolume(25);
+            $queueSize = $controller->getQueue()->count();
+
+            $queueNumber = rand(1, $queueSize);
+
+            $output->writeln('Injecting our song as ' . $queueNumber . ' of ' . $queueSize . ' in the queue');
+            $controller->getQueue()->addTrack(new Spotify($this->songs[array_rand($this->songs)]), $queueNumber);
+            $controller->setShuffle(true);
+
+            usleep(10000);
+
+            $output->writeln('Skipping to song ' . $queueNumber . ' in the queue');
+            $controller->selectTrack($queueNumber);
+
+            usleep(10000);
+
+            $controller->play();
+
+            $volume = $input->getOption('volume');
+            if (!empty($volume)) {
+                $speakers = $controller->getSpeakers();
+                /** @var SpeakerInterface $speaker */
+                foreach ($speakers as $speaker) {
+                    if ($speaker->getVolume() < $volume) {
+                        $output->writeln($speaker->getName() . ' Setting volume to ' . $volume . ', cause the volume was too low');
+                        $speaker->setVolume($volume);
+                    }
                 }
             }
 
