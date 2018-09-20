@@ -50,7 +50,8 @@ class SonosWhat extends Command
 
             /** @var SpeakerInterface $speaker */
             foreach ($speakers as $speaker) {
-                $output->writeln('Speaker: ' . $speaker->getName() . ' *** ' . $speaker->getRoom());
+                $output->writeln('Speaker: ' . $speaker->getIp() . ' --- ' . $speaker->getRoom());
+                $output->writeln('Volume: ' . $speaker->getVolume(''));
 
                 $state = $controller->getStateDetails();
                 if ($state->isStreaming()) {
@@ -61,11 +62,9 @@ class SonosWhat extends Command
                     }
                 } else {
                     $track = $controller->getStateDetails();
-                    $output->writeln("Now Playing: " . $track->getArtist() . ' - ' . $track->getTitle());
+                    $output->writeln("Now Playing: " . $track->getArtist() . ' - ' . $track->getTitle() . ' (' . $track->getPosition() . '/' . $track->getDuration() . ')');
                 }
             }
-
-            $output->writeln('');
         }
     }
 }
