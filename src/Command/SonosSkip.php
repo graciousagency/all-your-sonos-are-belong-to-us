@@ -49,13 +49,13 @@ class SonosSkip extends Command
 
             if (!$state->isStreaming()) {
                 $output->writeln('We are playing "' . $state->getArtist() . ' - ' . $state->getTitle() . '" at the moment... lets skip it');
+                $controller->setCrossfade(true);
                 $controller->next();
-                $output->writeln('Skipped the song, let us hope this is better :D');
+                usleep(10000);
+                $output->writeln('Skipped! Now playing "' . $state->getArtist() . ' - ' . $state->getTitle());
             } else {
                 $output->writeln('Currently playing a stream, we cant skip songs on a stream :(');
             }
-
-            $output->writeln('');
         }
     }
 }
