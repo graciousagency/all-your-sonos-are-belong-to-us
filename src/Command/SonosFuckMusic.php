@@ -49,6 +49,7 @@ class SonosFuckMusic extends Command
 
             /** @var SpeakerInterface $speaker */
             foreach ($speakers as $speaker) {
+                $output->writeln('Settings speaker (' . $speaker->getName() . ') volume to 0, was ' . $speaker->getVolume());
                 $speaker->setVolume(0);
             }
         }
