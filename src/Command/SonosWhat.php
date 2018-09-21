@@ -55,15 +55,10 @@ class SonosWhat extends Command
 
                 $state = $controller->getStateDetails();
                 if ($state->isStreaming()) {
-                    $output->writeln("Currently Streaming: " . $state->getStream());
-
-                    if ($state->getArtist()) {
-                        $output->writeln("Artist: " . $state->getArtist());
-                    }
-                } else {
-                    $track = $controller->getStateDetails();
-                    $output->writeln("Now Playing: " . $track->getArtist() . ' - ' . $track->getTitle() . ' (' . $track->getPosition() . '/' . $track->getDuration() . ')');
+                    $output->writeln("Currently Streaming: " . $state->getStream()->getTitle());
                 }
+
+                $output->writeln("Now Playing: " . $state->getArtist() . ' - ' . $state->getTitle() . ' (' . $state->getPosition() . '/' . $state->getDuration() . ')');
             }
         }
     }
