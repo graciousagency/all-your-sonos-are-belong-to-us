@@ -30,6 +30,11 @@ class SonosMeme extends Command
         '3UL6Lzsocv9Ucizgzid2B0', # We like to party
         '756juKwBfFSyXV3x00xdDX', # Trololol song
         '1B75hgRqe7A4fwee3g3Wmu', # Can't touch this
+#        '1JlDXahL6Q5InfZwqyKTDX' # What What (in the butt)
+        '27AHAtAirQapVldIm4c9ZX', # Kriss Kross jump
+        '4fK6E2UywZTJIa5kWnCD6x', # Friday
+        '3MjUtNVVq3C8Fn0MP3zhXa', # Baby hit me one more time
+        '6naxalmIoLFWR0siv8dnQQ' # Oops i did it again
     ];
 
     /**
@@ -67,6 +72,7 @@ class SonosMeme extends Command
         /** @var Controller $controllers */
         $controllers = $this->network->getControllers();
         foreach ($controllers as $controller) {
+
             /** @var Controller $controller */
             $output->writeln('Telling controller ' . $controller->getName() . ' to play our meme song');
             $controller->useQueue();
@@ -74,15 +80,15 @@ class SonosMeme extends Command
             $queueSize = $controller->getQueue()->count();
 
             $queueNumber = rand(1, $queueSize);
-
             $output->writeln('Injecting our song as ' . $queueNumber . ' of ' . $queueSize . ' in the queue');
             $controller->getQueue()->addTrack(new Spotify($this->songs[array_rand($this->songs)]), $queueNumber);
+
             $controller->setShuffle(true);
 
             usleep(10000);
 
             $output->writeln('Skipping to song ' . $queueNumber . ' in the queue');
-            $controller->selectTrack($queueNumber);
+            $controller->selectTrack($queueNumber-1);
 
             usleep(10000);
 
