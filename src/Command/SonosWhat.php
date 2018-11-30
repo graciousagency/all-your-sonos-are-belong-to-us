@@ -6,6 +6,7 @@ use duncan3dc\Sonos\Controller;
 use duncan3dc\Sonos\Interfaces\SpeakerInterface;
 use duncan3dc\Sonos\Network;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -40,26 +41,37 @@ class SonosWhat extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
+        $table = new Table($output);
+        $table->setHeaders(array('Controller', 'Speaker', 'Volume', 'Playing'));
+
         /** @var Controller $controllers */
         $controllers = $this->network->getControllers();
 
         /** @var Controller $controller */
         foreach ($controllers as $controller) {
-            $output->writeln('Controller: ' . $controller->getName());
             $speakers = $controller->getSpeakers();
 
             /** @var SpeakerInterface $speaker */
             foreach ($speakers as $speaker) {
-                $output->writeln('Speaker: ' . $speaker->getIp() . ' --- ' . $speaker->getRoom());
-                $output->writeln('Volume: ' . $speaker->getVolume(''));
-
                 $state = $controller->getStateDetails();
+
+                $playing = 'Unknown';
                 if ($state->isStreaming()) {
-                    $output->writeln("Currently Streaming: " . $state->getStream()->getTitle());
+                    $playing = 'Streaming: ' . $state->getStream()->getTitle();
                 }
 
-                $output->writeln("Now Playing: " . $state->getArtist() . ' - ' . $state->getTitle() . ' (' . $state->getPosition() . '/' . $state->getDuration() . ')');
+                if (!$state->isStreaming()) {
+                    $playing = "Playing: " . $state->getArtist() . ' - ' . $state->getTitle() . ' (' . $state->getPosition() . '/' . $state->getDuration() . ')';
+                }
+
+                $table->addRow([
+                    $controller->getName(),
+                    $speaker->getIp() . ' :: ' . $speaker->getRoom(),
+                    $speaker->getVolume(),
+                    $playing
+                ]);
             }
         }
+        $table->render();
     }
 }
