@@ -10,7 +10,8 @@
         "symfony/console": "^4.1",
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "^4.1",
-        "symfony/yaml": "^4.1"
+        "symfony/yaml": "^4.1",
+        "league/flysystem": "^1.0"
     },
     "require-dev": {
         "symfony/dotenv": "^4.1"
@@ -57,7 +58,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "4.1.*"
+            "require": "4.2.*"
         }
     }
 }

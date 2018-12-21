@@ -44,6 +44,9 @@
     "psr/simple-cache": {
         "version": "1.0.1"
     },
+    "ralouphie/getallheaders": {
+        "version": "2.0.5"
+    },
     "react/event-loop": {
         "version": "v1.0.0"
     },
@@ -61,6 +64,9 @@
             "version": "3.3",
             "ref": "e3868d2f4a5104f19f844fe551099a00c6562527"
         }
+    },
+    "symfony/contracts": {
+        "version": "v1.0.2"
     },
     "symfony/debug": {
         "version": "v4.1.4"
@@ -115,6 +121,9 @@
             "version": "4.0",
             "ref": "5f514d9d3b8a8aac3d62ae6a86b18b90ed0c7826"
         }
+    },
+    "symfony/var-exporter": {
+        "version": "v4.2.1"
     },
     "symfony/yaml": {
         "version": "v4.1.4"
