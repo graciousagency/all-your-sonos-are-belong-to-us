@@ -31,6 +31,7 @@ class SonosSmb extends Command
      * @param null|string $name
      * @param Network     $network
      * @param string      $smbServerName
+     * @param string      $smbShareName
      */
     public function __construct(?string $name = null, Network $network, string $smbServerName, string $smbShareName)
     {
