@@ -7,11 +7,11 @@
         "ext-iconv": "*",
         "duncan3dc/sonos": "^2.0",
         "react/event-loop": "^1.0",
+        "symfony/cache": "^4.2",
         "symfony/console": "^4.1",
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "^4.1",
-        "symfony/yaml": "^4.1",
-        "league/flysystem": "^1.0"
+        "symfony/yaml": "^4.1"
     },
     "require-dev": {
         "symfony/dotenv": "^4.1"

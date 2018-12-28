@@ -30,9 +30,29 @@ services:
   # please note that last definitions always *replace* previous ones
 
   duncan3dc\Sonos\Network:
+    lazy: true
+    arguments:
+      $collection: '@duncan3dc\Sonos\Devices\CachedCollection'
 
   App\Command\SonosSmb:
     lazy: true
     arguments:
       $smbServerName: '%env(SMB_SERVER_NAME)%'
       $smbShareName: '%env(SMB_SHARE_NAME)%'
+
+  Symfony\Component\Cache\Simple\FilesystemCache:
+    lazy: true
+    arguments:
+      $namespace: 'sonos'
+      $defaultLifetime: 3600
+      $directory: '%kernel.cache_dir%'
+
+  duncan3dc\Sonos\Devices\Discovery:
+    lazy: true
+
+  duncan3dc\Sonos\Devices\CachedCollection:
+    lazy: true
+    arguments:
+      $collection: '@duncan3dc\Sonos\Devices\Discovery'
+      $cache: '@Symfony\Component\Cache\Simple\FilesystemCache'
+
