@@ -42,7 +42,7 @@ class SonosWhat extends Command
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
         $table = new Table($output);
-        $table->setHeaders(array('Controller', 'Speaker', 'Volume', 'Playing'));
+        $table->setHeaders(['Controller', 'Speaker', 'Volume', 'Playing']);
 
         /** @var Controller $controllers */
         $controllers = $this->network->getControllers();
@@ -61,7 +61,7 @@ class SonosWhat extends Command
                 }
 
                 if (!$state->isStreaming()) {
-                    $playing = "Playing: " . $state->getArtist() . ' - ' . $state->getTitle() . ' (' . $state->getPosition() . '/' . $state->getDuration() . ')';
+                    $playing = 'Playing: ' . $state->getArtist() . ' - ' . $state->getTitle() . ' (' . $state->getPosition() . '/' . $state->getDuration() . ')';
                 }
 
                 $table->addRow([
