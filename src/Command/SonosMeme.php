@@ -37,7 +37,15 @@ class SonosMeme extends Command
         '6naxalmIoLFWR0siv8dnQQ', # Oops i did it again
         '0p2dFdbKM7QV8r8tdySuoE', # Jacking it in san diego
         '35hWFT2iRk3hUYUnYRY9YL', # Kanye's Birthday
-        '7MKNP9GEcCj4Vcfw3IerQ6', # Old town road
+        '7MKNP9GEcCj4Vcfw3IerQ6', # Old town road,
+        '2KH16WveTQWT6KOG9Rg6e2', # Eye of the tiger
+        '3SFXsFpeGmBTtQvKiwYMDA', # Pretty fly for a white guy
+        '5PONCrsJnRyMsHBsnUS6I9',
+        '1oTHteQbmJw15rPxPVXUTv', # Insane in the brain,
+        '1F2WlnUZgreayYJE0cbPk7', # Mah na mah na
+        '5awDvzxWfd53SSrsRZ8pXO', # Du Hast
+        '0GxIAMtKFYTQZpR1avO6HB', # Mann Gegen Mann
+        '5ygDXis42ncn6kYG14lEVG', # Baby Shark
     ];
 
     /**
@@ -55,7 +63,7 @@ class SonosMeme extends Command
         $this->network = $network;
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('sonos:meme')
             ->setDescription('Put on a meme song');
@@ -72,19 +80,30 @@ class SonosMeme extends Command
     protected function execute(InputInterface $input, OutputInterface $output): void
     {
         $output->writeln('Getting controllers');
-        /** @var Controller $controllers */
         $controllers = $this->network->getControllers();
+        $randomSongKey = array_rand($this->songs);
+        /** @var Controller $controllers */
         foreach ($controllers as $controller) {
-
             /** @var Controller $controller */
             $output->writeln('Telling controller ' . $controller->getName() . ' to play our meme song');
             $controller->useQueue();
 
             $queueSize = $controller->getQueue()->count();
+            if (!$queueSize) {
+                $queueNumber = 1;
+            }
 
-            $queueNumber = random_int(1, $queueSize);
+            if ($queueSize) {
+                $queueNumber = random_int(1, $queueSize);
+            }
+
             $output->writeln('Injecting our song as ' . $queueNumber . ' of ' . $queueSize . ' in the queue');
-            $controller->getQueue()->addTrack(new Spotify($this->songs[array_rand($this->songs)]), $queueNumber);
+            $controller->getQueue()->addTrack(
+                new Spotify(
+                    $this->songs[$randomSongKey]
+                ),
+                $queueNumber
+            );
 
             $controller->setShuffle(true);
             $output->writeln('Skipping to song ' . $queueNumber . ' in the queue');
