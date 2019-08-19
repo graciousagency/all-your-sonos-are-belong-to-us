@@ -47,9 +47,9 @@
             "authors": [
                 {
                     "name": "Craig Duncan",
+                    "role": "Developer",
                     "email": "git@duncanc.co.uk",
-                    "homepage": "https://github.com/duncan3dc",
-                    "role": "Developer"
+                    "homepage": "https://github.com/duncan3dc"
                 }
             ],
             "description": "Simple PSR-6/PSR-16 compatible disk cache",
@@ -105,9 +105,9 @@
             "authors": [
                 {
                     "name": "Craig Duncan",
+                    "role": "Developer",
                     "email": "git@duncanc.co.uk",
-                    "homepage": "https://github.com/duncan3dc",
-                    "role": "Developer"
+                    "homepage": "https://github.com/duncan3dc"
                 }
             ],
             "description": "Wrappers for the standard DOMDocument class to provide extra functionality for html/xml parsing",
@@ -161,9 +161,9 @@
             "authors": [
                 {
                     "name": "Craig Duncan",
+                    "role": "Developer",
                     "email": "git@duncanc.co.uk",
-                    "homepage": "https://github.com/duncan3dc",
-                    "role": "Developer"
+                    "homepage": "https://github.com/duncan3dc"
                 }
             ],
             "description": "A PSR-3 trait allowing any class to easily add logger support",
@@ -225,9 +225,9 @@
             "authors": [
                 {
                     "name": "Craig Duncan",
+                    "role": "Developer",
                     "email": "git@duncanc.co.uk",
-                    "homepage": "https://github.com/duncan3dc",
-                    "role": "Developer"
+                    "homepage": "https://github.com/duncan3dc"
                 }
             ],
             "description": "Control Sonos speakers using a simple API",
@@ -278,9 +278,9 @@
             "authors": [
                 {
                     "name": "Craig Duncan",
+                    "role": "Developer",
                     "email": "git@duncanc.co.uk",
-                    "homepage": "https://github.com/duncan3dc",
-                    "role": "Developer"
+                    "homepage": "https://github.com/duncan3dc"
                 }
             ],
             "description": "Some utilities and interfaces for Sonos code",
@@ -327,9 +327,9 @@
             "authors": [
                 {
                     "name": "Craig Duncan",
+                    "role": "Developer",
                     "email": "git@duncanc.co.uk",
-                    "homepage": "https://github.com/duncan3dc",
-                    "role": "Developer"
+                    "homepage": "https://github.com/duncan3dc"
                 }
             ],
             "description": "Convert text to speech using web services",
@@ -2085,16 +2085,16 @@
     "packages-dev": [
         {
             "name": "symfony/dotenv",
-            "version": "v4.2.10",
+            "version": "v4.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dotenv.git",
-                "reference": "6163f061011009655da1bc615b38941bc460ef1b"
+                "reference": "c9ea2a1c60e7db08c1d1379cd4448fd14bda11eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dotenv/zipball/6163f061011009655da1bc615b38941bc460ef1b",
-                "reference": "6163f061011009655da1bc615b38941bc460ef1b",
+                "url": "https://api.github.com/repos/symfony/dotenv/zipball/c9ea2a1c60e7db08c1d1379cd4448fd14bda11eb",
+                "reference": "c9ea2a1c60e7db08c1d1379cd4448fd14bda11eb",
                 "shasum": ""
             },
             "require": {
@@ -2106,7 +2106,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.2-dev"
+                    "dev-master": "4.3-dev"
                 }
             },
             "autoload": {
@@ -2138,7 +2138,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2019-06-26T06:46:55+00:00"
+            "time": "2019-06-26T06:50:02+00:00"
         }
     ],
     "aliases": [],
