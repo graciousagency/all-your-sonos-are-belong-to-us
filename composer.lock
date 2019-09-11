@@ -178,16 +178,16 @@
         },
         {
             "name": "duncan3dc/sonos",
-            "version": "2.0.7",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/duncan3dc/sonos.git",
-                "reference": "e62250f9cba4ab3e23b7982ed7b3820e9bf75e3c"
+                "reference": "8aa9dc3267aa675df5331fb6ba409a28f8c95361"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/duncan3dc/sonos/zipball/e62250f9cba4ab3e23b7982ed7b3820e9bf75e3c",
-                "reference": "e62250f9cba4ab3e23b7982ed7b3820e9bf75e3c",
+                "url": "https://api.github.com/repos/duncan3dc/sonos/zipball/8aa9dc3267aa675df5331fb6ba409a28f8c95361",
+                "reference": "8aa9dc3267aa675df5331fb6ba409a28f8c95361",
                 "shasum": ""
             },
             "require": {
@@ -207,7 +207,7 @@
             "require-dev": {
                 "duncan3dc/object-intruder": "^0.3.0",
                 "maglnet/composer-require-checker": "^1.0",
-                "mockery/mockery": "^1.0",
+                "mockery/mockery": "^1.0,<1.2.3",
                 "phpstan/phpstan": "^0.10.2",
                 "phpunit/phpunit": "^6.4",
                 "squizlabs/php_codesniffer": "^3.3.2"
@@ -237,7 +237,7 @@
                 "streaming",
                 "upnp"
             ],
-            "time": "2019-03-15T16:57:39+00:00"
+            "time": "2019-08-25T11:04:16+00:00"
         },
         {
             "name": "duncan3dc/sonos-common",
@@ -530,16 +530,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.53",
+            "version": "1.0.55",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "08e12b7628f035600634a5e76d95b5eb66cea674"
+                "reference": "33c91155537c6dc899eacdc54a13ac6303f156e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/08e12b7628f035600634a5e76d95b5eb66cea674",
-                "reference": "08e12b7628f035600634a5e76d95b5eb66cea674",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/33c91155537c6dc899eacdc54a13ac6303f156e6",
+                "reference": "33c91155537c6dc899eacdc54a13ac6303f156e6",
                 "shasum": ""
             },
             "require": {
@@ -610,7 +610,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2019-06-18T20:09:29+00:00"
+            "time": "2019-08-24T11:17:19+00:00"
         },
         {
             "name": "psr/cache",
