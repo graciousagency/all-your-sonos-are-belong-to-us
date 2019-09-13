@@ -7,14 +7,14 @@
         "ext-iconv": "*",
         "duncan3dc/sonos": "^2.0",
         "react/event-loop": "^1.0",
-        "symfony/cache": "^4.2",
-        "symfony/console": "^4.1",
+        "symfony/cache": "*",
+        "symfony/console": "*",
         "symfony/flex": "^1.1",
-        "symfony/framework-bundle": "^4.1",
-        "symfony/yaml": "^4.1"
+        "symfony/framework-bundle": "*",
+        "symfony/yaml": "*"
     },
     "require-dev": {
-        "symfony/dotenv": "^4.1"
+        "symfony/dotenv": "*"
     },
     "config": {
         "preferred-install": {
@@ -58,7 +58,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "4.2.*"
+            "require": "4.3.*"
         }
     }
 }
