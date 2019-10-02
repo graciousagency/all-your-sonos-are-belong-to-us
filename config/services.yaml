@@ -4,6 +4,8 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+imports:
+  - { resource: 'sonos.yaml' }
 
 services:
   # default configuration for services in *this* file
@@ -35,10 +37,13 @@ services:
       $collection: '@duncan3dc\Sonos\Devices\CachedCollection'
 
   App\Command\SonosSmb:
-    lazy: true
+      arguments:
+        $smbServerName: '%env(SMB_SERVER_NAME)%'
+        $smbShareName: '%env(SMB_SHARE_NAME)%'
+
+  App\Command\SonosMeme:
     arguments:
-      $smbServerName: '%env(SMB_SERVER_NAME)%'
-      $smbShareName: '%env(SMB_SHARE_NAME)%'
+      $songs: '%sonos.meme%'
 
   Symfony\Component\Cache\Simple\FilesystemCache:
     lazy: true

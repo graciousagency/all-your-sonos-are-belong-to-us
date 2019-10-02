@@ -12,55 +12,26 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class SonosMeme extends Command
 {
-    private $songs = [
-        '4uLU6hMCjMI75M1A2tKUQC', # Never gonna give you up
-        '34x6hEJgGAOQvmlMql5Ige', # Dangerzone
-        '5YbgcwHjQhdT1BYQ4rxWlD', # Don't worry, be happy
-        '61KSXW8r9oI1hPHv9Jx1tL', # ????
-        '0ikz6tENMONtK6qGkOrU3c', # Rock me amadeus
-        '3MrRksHupTVEQ7YbA0FsZK', # Final Count Down
-        '7aHRctaQ7vjxVTVmY8OhAA', # We Built This City
-        '2IHaGyfxNoFPLJnaEg4GTs', # What is love
-        '5VOoT3AIIStTSN8cSMrSD4', # Nyan cat theme
-        '2yAVzRiEQooPEJ9SYx11L3', # Im Blue
-        '0UREO3QWbXJW3gOUXpK1am', # Fresh prince of bel-air
-        '2nUJvBO87SkxCViQsLc9Zr', # Mans not hot
-        '2b80TuUiQmpXRq9zpRGNdu', # Running in the 90s
-        '1R2SZUOGJqqBiLuvwKOT2Y', # Gangnam style
-        '3UL6Lzsocv9Ucizgzid2B0', # We like to party
-        '756juKwBfFSyXV3x00xdDX', # Trololol song
-        '1B75hgRqe7A4fwee3g3Wmu', # Can't touch this
-        '1JlDXahL6Q5InfZwqyKTDX', # What What (in the butt)
-        '27AHAtAirQapVldIm4c9ZX', # Kriss Kross jump
-        '4fK6E2UywZTJIa5kWnCD6x', # Friday
-        '3MjUtNVVq3C8Fn0MP3zhXa', # Baby hit me one more time
-        '6naxalmIoLFWR0siv8dnQQ', # Oops i did it again
-        '0p2dFdbKM7QV8r8tdySuoE', # Jacking it in san diego
-        '35hWFT2iRk3hUYUnYRY9YL', # Kanye's Birthday
-        '7MKNP9GEcCj4Vcfw3IerQ6', # Old town road,
-        '2KH16WveTQWT6KOG9Rg6e2', # Eye of the tiger
-        '3SFXsFpeGmBTtQvKiwYMDA', # Pretty fly for a white guy
-        '5PONCrsJnRyMsHBsnUS6I9',
-        '1oTHteQbmJw15rPxPVXUTv', # Insane in the brain,
-        '1F2WlnUZgreayYJE0cbPk7', # Mah na mah na
-        '5awDvzxWfd53SSrsRZ8pXO', # Du Hast
-        '0GxIAMtKFYTQZpR1avO6HB', # Mann Gegen Mann
-        '5ygDXis42ncn6kYG14lEVG', # Baby Shark
-    ];
-
     /**
      * @var Network
      */
     private $network;
 
     /**
+     * @var array
+     */
+    private $songs;
+
+    /**
      * @param null|string $name
      * @param Network $network
+     * @param $songs
      */
-    public function __construct(?string $name = null, Network $network)
+    public function __construct(?string $name = null, Network $network, array $songs)
     {
         parent::__construct($name);
         $this->network = $network;
+        $this->songs = $songs;
     }
 
     protected function configure(): void
