@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c0402a5e5b19d32a5f7192ae0976519e",
+    "content-hash": "0f021bcede960150da54b27a361a0a0c",
     "packages": [
         {
             "name": "duncan3dc/cache",
@@ -47,9 +47,9 @@
             "authors": [
                 {
                     "name": "Craig Duncan",
-                    "role": "Developer",
                     "email": "git@duncanc.co.uk",
-                    "homepage": "https://github.com/duncan3dc"
+                    "homepage": "https://github.com/duncan3dc",
+                    "role": "Developer"
                 }
             ],
             "description": "Simple PSR-6/PSR-16 compatible disk cache",
@@ -105,9 +105,9 @@
             "authors": [
                 {
                     "name": "Craig Duncan",
-                    "role": "Developer",
                     "email": "git@duncanc.co.uk",
-                    "homepage": "https://github.com/duncan3dc"
+                    "homepage": "https://github.com/duncan3dc",
+                    "role": "Developer"
                 }
             ],
             "description": "Wrappers for the standard DOMDocument class to provide extra functionality for html/xml parsing",
@@ -161,9 +161,9 @@
             "authors": [
                 {
                     "name": "Craig Duncan",
-                    "role": "Developer",
                     "email": "git@duncanc.co.uk",
-                    "homepage": "https://github.com/duncan3dc"
+                    "homepage": "https://github.com/duncan3dc",
+                    "role": "Developer"
                 }
             ],
             "description": "A PSR-3 trait allowing any class to easily add logger support",
@@ -225,9 +225,9 @@
             "authors": [
                 {
                     "name": "Craig Duncan",
-                    "role": "Developer",
                     "email": "git@duncanc.co.uk",
-                    "homepage": "https://github.com/duncan3dc"
+                    "homepage": "https://github.com/duncan3dc",
+                    "role": "Developer"
                 }
             ],
             "description": "Control Sonos speakers using a simple API",
@@ -1340,7 +1340,7 @@
         },
         {
             "name": "symfony/dotenv",
-            "version": "v4.3.4",
+            "version": "v4.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dotenv.git",
