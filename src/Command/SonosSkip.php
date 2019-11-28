@@ -37,7 +37,7 @@ class SonosSkip extends Command
      * @return void
      * @throws \Throwable
      */
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         /** @var Controller $controllers */
         $controllers = $this->network->getControllers();
@@ -58,5 +58,6 @@ class SonosSkip extends Command
                 $output->writeln('Currently playing a stream, we cant skip songs on a stream :(');
             }
         }
+        return 0;
     }
 }

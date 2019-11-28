@@ -55,7 +55,7 @@ class SonosSmb extends Command
      * @return void
      * @throws \Throwable
      */
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $track = new SmbTrack($this->smbShareName.'/'.$input->getArgument('file'), $this->smbServerName);
         $output->writeln('Getting controllers');
@@ -70,5 +70,6 @@ class SonosSmb extends Command
         }
 
         $output->writeln('Done!');
+        return 0;
     }
 }

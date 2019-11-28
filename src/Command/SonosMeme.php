@@ -48,7 +48,7 @@ class SonosMeme extends Command
      * @return void
      * @throws \Throwable
      */
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('Getting controllers');
         $controllers = $this->network->getControllers();
@@ -101,5 +101,6 @@ class SonosMeme extends Command
         }
 
         $output->writeln('Done! our meme song should be playing now!');
+        return 0;
     }
 }

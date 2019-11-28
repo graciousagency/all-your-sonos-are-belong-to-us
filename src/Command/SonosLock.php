@@ -106,7 +106,7 @@ class SonosLock extends Command
      * @return bool
      * @throws \duncan3dc\Sonos\Exceptions\SoapException
      */
-    protected function overruleSong(InputInterface $input, OutputInterface $output): bool
+    protected function overruleSong(InputInterface $input, OutputInterface $output): int
     {
         /** @var Controller $controller */
         $controller->useQueue();
@@ -141,5 +141,6 @@ class SonosLock extends Command
 
         $state = $controller->getStateDetails();
         $output->writeln("Now Playing: " . $state->getArtist() . ' - ' . $state->getTitle());
+        return 0;
     }
 }

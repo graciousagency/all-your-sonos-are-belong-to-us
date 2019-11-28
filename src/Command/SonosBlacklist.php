@@ -48,7 +48,7 @@ class SonosBlacklist extends Command
      * @return void
      * @throws \Throwable
      */
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $loop = \React\EventLoop\Factory::create();
         $output->writeln('Starting our watch :)');
@@ -76,5 +76,6 @@ class SonosBlacklist extends Command
             }
         });
         $loop->run();
+        return 0;
     }
 }

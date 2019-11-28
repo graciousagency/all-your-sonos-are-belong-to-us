@@ -33,8 +33,8 @@ services:
 
   duncan3dc\Sonos\Network:
     lazy: true
-    arguments:
-      $collection: '@duncan3dc\Sonos\Devices\CachedCollection'
+#    arguments:
+#      $collection: '@duncan3dc\Sonos\Devices\CachedCollection'
 
   App\Command\SonosSmb:
       arguments:
@@ -55,9 +55,9 @@ services:
   duncan3dc\Sonos\Devices\Discovery:
     lazy: true
 
-  duncan3dc\Sonos\Devices\CachedCollection:
-    lazy: true
-    arguments:
-      $collection: '@duncan3dc\Sonos\Devices\Discovery'
-      $cache: '@Symfony\Component\Cache\Adapter\FilesystemAdapter'
+#  duncan3dc\Sonos\Devices\CachedCollection:
+#    lazy: true
+#    arguments:
+#      $collection: '@duncan3dc\Sonos\Devices\Discovery'
+#      $cache: '@Symfony\Component\Cache\Adapter\FilesystemAdapter'
 

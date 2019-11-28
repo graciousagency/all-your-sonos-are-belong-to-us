@@ -39,7 +39,7 @@ class SonosWhat extends Command
      * @return void
      * @throws \Throwable
      */
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $table = new Table($output);
         $table->setHeaders(['Controller', 'Speaker', 'Volume', 'Playing']);
@@ -73,5 +73,6 @@ class SonosWhat extends Command
             }
         }
         $table->render();
+        return 0;
     }
 }
