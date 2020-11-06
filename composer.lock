@@ -1877,16 +1877,16 @@
         },
         {
             "name": "symfony/flex",
-            "version": "v1.9.2",
+            "version": "v1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/flex.git",
-                "reference": "08882d1d639c4e58a6e4cd48411ed8a622dd206e"
+                "reference": "e38520236bdc911c2f219634b485bc328746e980"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/flex/zipball/08882d1d639c4e58a6e4cd48411ed8a622dd206e",
-                "reference": "08882d1d639c4e58a6e4cd48411ed8a622dd206e",
+                "url": "https://api.github.com/repos/symfony/flex/zipball/e38520236bdc911c2f219634b485bc328746e980",
+                "reference": "e38520236bdc911c2f219634b485bc328746e980",
                 "shasum": ""
             },
             "require": {
@@ -1902,7 +1902,7 @@
             "type": "composer-plugin",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.8-dev"
+                    "dev-main": "1.9-dev"
                 },
                 "class": "Symfony\\Flex\\Flex"
             },
@@ -1936,7 +1936,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-08-25T08:51:56+00:00"
+            "time": "2020-11-05T10:56:45+00:00"
         },
         {
             "name": "symfony/framework-bundle",
