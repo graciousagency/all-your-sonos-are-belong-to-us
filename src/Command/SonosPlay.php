@@ -54,7 +54,7 @@ class SonosPlay extends Command
         $output->writeln('Getting controllers');
         $controllers = $this->network->getControllers();
 
-        preg_match('/spotify:track:(\w+)/', $song, $output_array);
+        preg_match('/track\/(\w+)\?/', $song, $output_array);
         $songId = $output_array[1];
 
         /** @var Controller $controllers */

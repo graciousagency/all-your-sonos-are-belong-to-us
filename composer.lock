@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e81d914bf09a4181fe4c4540e24d86a",
+    "content-hash": "a1b54266fc02c5d51108cfdcd679aa6b",
     "packages": [
         {
             "name": "duncan3dc/cache",
@@ -3702,7 +3702,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.0",
+        "php": "^7.4|^8.0",
         "ext-ctype": "*",
         "ext-iconv": "*"
     },

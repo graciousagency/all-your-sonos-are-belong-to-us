@@ -2,7 +2,7 @@
     "type": "project",
     "license": "proprietary",
     "require": {
-        "php": "^8.0",
+        "php": "^7.4|^8.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "duncan3dc/sonos": "^2.0",

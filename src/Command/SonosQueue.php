@@ -26,6 +26,7 @@ class SonosQueue extends Command
             ->setDescription('What\'s in the queue?');
         $this->addOption('remove', 'rm', InputOption::VALUE_OPTIONAL, 'Remove song from the queue', false);
         $this->addOption('add', null, InputOption::VALUE_OPTIONAL, 'Add song to the queue', false);
+        $this->addOption('nr', null, InputOption::VALUE_OPTIONAL, 'Add song in queue to this spot in the queue', null);
         $this->addOption('queue', null, InputOption::VALUE_OPTIONAL, 'Play from queue', false);
     }
 
@@ -36,6 +37,7 @@ class SonosQueue extends Command
 
         $controllers = $this->network->getControllers();
         $options = $input->getOptions();
+        $reset = false;
 
         foreach ($controllers as $controller) {
             $tracks = $controller->getQueue()->getTracks();
@@ -47,6 +49,7 @@ class SonosQueue extends Command
                 $output->writeln('We are NOT using the queue now');
                 if (!empty($options['queue'])) {
                     $controller->useQueue();
+                    $reset = true;
                     $output->writeln('Forced controller to use the queue instead');
                 }
             }
@@ -58,15 +61,23 @@ class SonosQueue extends Command
                 if (isset($tracks[$options['remove']])) {
                     $output->writeln('Removed '. $tracks[$options['remove']]->getArtist() .' - '. $tracks[$options['remove']]->getTitle());
                     $controller->getQueue()->removeTrack($options['remove']);
-                    usleep(500000);
+                    $reset = true;
                 }
             }
 
             if (!empty($options['add']) && is_string($options['add'])) {
+                preg_match('/track\/(\w+)\?/', $options['add'], $output_array);
                 $controller->getQueue()->addTrack(
-                    new Spotify($options['add']),
+                    new Spotify($output_array[1]),
+                    $input->getOption('nr')
                 );
+                $reset = true;
                 $output->writeln('Added new song to the back of the queue');
+            }
+
+            if ($reset) {
+                usleep(500000);
+                $tracks = $controller->getQueue()->getTracks();
             }
 
             foreach ($tracks as $number => $song) {
