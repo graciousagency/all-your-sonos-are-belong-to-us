@@ -74,9 +74,7 @@ class SonosPlay extends Command
 
             $output->writeln('Injecting our song as ' . $queueNumber . ' of ' . $queueSize . ' in the queue');
             $controller->getQueue()->addTrack(
-                new Spotify(
-                    $songId
-                ),
+                new Spotify($songId),
                 $queueNumber
             );
 
@@ -98,7 +96,7 @@ class SonosPlay extends Command
                     }
                 }
             }
-
+            usleep(250000);
             $state = $controller->getStateDetails();
             $output->writeln('Now Playing: ' . $state->getArtist() . ' - ' . $state->getTitle());
         }

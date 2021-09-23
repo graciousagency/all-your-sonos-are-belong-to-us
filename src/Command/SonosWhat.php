@@ -12,15 +12,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class SonosWhat extends Command
 {
-    /**
-     * @var Network
-     */
-    private $network;
+    private Network $network;
 
-    /**
-     * @param null|string $name
-     * @param Network $network
-     */
     public function __construct(?string $name = null, Network $network)
     {
         parent::__construct($name);
@@ -33,25 +26,16 @@ class SonosWhat extends Command
             ->setDescription('Whats going on, on the sonos network?');
     }
 
-    /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
-     * @return void
-     * @throws \Throwable
-     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $table = new Table($output);
-        $table->setHeaders(['Controller', 'Speaker', 'Volume', 'Playing']);
+        $table->setHeaders(['Controller', 'Speaker', 'Volume', 'Playing', 'Bass', 'Treble']);
 
-        /** @var Controller $controllers */
         $controllers = $this->network->getControllers();
 
-        /** @var Controller $controller */
         foreach ($controllers as $controller) {
             $speakers = $controller->getSpeakers();
 
-            /** @var SpeakerInterface $speaker */
             foreach ($speakers as $speaker) {
                 $state = $controller->getStateDetails();
 
@@ -61,14 +45,16 @@ class SonosWhat extends Command
                 }
 
                 if (!$state->isStreaming()) {
-                    $playing = 'Playing: ' . $state->getArtist() . ' - ' . $state->getTitle() . ' (' . $state->getPosition() . '/' . $state->getDuration() . ')';
+                    $playing = $state->getArtist() . ' - ' . $state->getTitle() . ' (' . $state->getPosition() . '/' . $state->getDuration() . ')';
                 }
 
                 $table->addRow([
                     $controller->getName(),
                     $speaker->getIp() . ' :: ' . $speaker->getRoom(),
                     $speaker->getVolume(),
-                    $playing
+                    $playing,
+                    $speaker->getBass(),
+                    $speaker->getTreble(),
                 ]);
             }
         }
