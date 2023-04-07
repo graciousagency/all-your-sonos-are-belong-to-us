@@ -33,9 +33,9 @@ class SonosSmb extends Command
      * @param string      $smbServerName
      * @param string      $smbShareName
      */
-    public function __construct(?string $name = null, Network $network, string $smbServerName, string $smbShareName)
+    public function __construct(Network $network, string $smbServerName, string $smbShareName)
     {
-        parent::__construct($name);
+        parent::__construct();
         $this->network = $network;
         $this->smbServerName = $smbServerName;
         $this->smbShareName = $smbShareName;

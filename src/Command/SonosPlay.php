@@ -24,9 +24,9 @@ class SonosPlay extends Command
      * @param Network $network
      * @param $songs
      */
-    public function __construct(?string $name = null, Network $network)
+    public function __construct(Network $network)
     {
-        parent::__construct($name);
+        parent::__construct();
         $this->network = $network;
     }
 

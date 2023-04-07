@@ -27,9 +27,9 @@ class SonosMeme extends Command
      * @param Network $network
      * @param $songs
      */
-    public function __construct(?string $name = null, Network $network, array $songs)
+    public function __construct(Network $network, array $songs)
     {
-        parent::__construct($name);
+        parent::__construct();
         $this->network = $network;
         $this->songs = $songs;
     }

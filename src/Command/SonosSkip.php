@@ -19,9 +19,9 @@ class SonosSkip extends Command
      * @param null|string $name
      * @param Network $network
      */
-    public function __construct(?string $name = null, Network $network)
+    public function __construct(Network $network)
     {
-        parent::__construct($name);
+        parent::__construct();
         $this->network = $network;
     }
 
